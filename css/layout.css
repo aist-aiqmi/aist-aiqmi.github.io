@@ -1867,3 +1867,27 @@ ol.style1 li:before {
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
+/* ENを小さくボタンっぽく（必要なら微調整） */
+.lang-switch a{
+  display: inline-block;
+  padding: .25em .6em;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  line-height: 1;
+}
+/* 最後の項目だけ「/」を表示しない */
+.header-area ul li:last-child::after{
+  content: "" !important;
+}
+/* ハンバーガーメニュー：各項目の間隔を均等に（最後だけは余白なし） */
+#g-nav-list ul li{
+  margin: 0 0 16px;
+}
+#g-nav-list ul li:last-child{
+  margin-bottom: 0;
+}
+
+/* （任意）Englishボタンだけ、上を少しだけ空ける */
+#g-nav-list ul li.lang-switch{
+  margin-top: 6px;
+}
