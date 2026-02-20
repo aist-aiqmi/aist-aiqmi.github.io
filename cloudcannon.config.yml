@@ -1,13 +1,8 @@
-paths:
-  static: .
-
-collections_config:
+collections:
   pages:
-    path: .
     output: true
-    filter:
-      include:
-        - cc_test.html
-    schemas:
-      default:
-        path: schemas/page.md
+    paths:
+      - cc_test.html
+
+editor:
+  default_path: /cc_test.html
