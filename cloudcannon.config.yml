@@ -1,8 +1,7 @@
-collections:
+collections_config:
   pages:
+    path: ""
+    glob:
+      - "cc_test.html"
+    filter: strict
     output: true
-    paths:
-      - cc_test.html
-
-editor:
-  default_path: /cc_test.html
