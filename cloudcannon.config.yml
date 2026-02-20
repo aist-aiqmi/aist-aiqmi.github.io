@@ -1,0 +1,13 @@
+paths:
+  static: .
+
+collections_config:
+  pages:
+    path: .
+    output: true
+    filter:
+      include:
+        - cc_test.html
+    schemas:
+      default:
+        path: schemas/page.md
