@@ -135,6 +135,9 @@ img{
 #g-nav li:nth-of-type(8){
     animation-delay: 1.7s;
 }
+#g-nav li:nth-of-type(9){
+    animation-delay: 1.9s;
+}
 
 .nav_lh{
 	line-height: 1;
@@ -1891,3 +1894,79 @@ ol.style1 li:before {
 #g-nav-list ul li.lang-switch{
   margin-top: 6px;
 }
+<style>
+/* Corporate Members list (name-only) */
+.membership-grid.members-grid{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.member-card{
+  padding: 14px 14px;
+  border-radius: 14px;
+  background: rgba(255,255,255,.74);
+  border: 1px solid rgba(0,0,0,.06);
+  box-shadow: 0 12px 28px rgba(0,0,0,.06);
+  transition: transform .18s ease, background .18s ease, border-color .18s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.member-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: radial-gradient(120px 120px at 15% 0%, rgba(0,0,0,.06), transparent 60%);
+  opacity: .6;
+  pointer-events:none;
+}
+
+.member-card:hover{
+  transform: translateY(-2px);
+  background: rgba(255,255,255,.88);
+  border-color: rgba(0,0,0,.10);
+}
+
+.member-name{
+  font-weight: 700;
+  letter-spacing: .01em;
+  line-height: 1.35;
+}
+
+.member-sub{
+  margin-top: 6px;
+  font-size: 12px;
+  opacity: .72;
+  letter-spacing: .02em;
+}
+
+/* Optional: 小さな番号感（なくてもOK） */
+.member-no{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 10px;
+  background: rgba(0,0,0,.06);
+  border: 1px solid rgba(0,0,0,.06);
+  font-size: 12px;
+  font-weight: 700;
+  margin-right: 10px;
+  flex: 0 0 auto;
+}
+
+.member-row{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+@media (max-width: 980px){
+  .membership-grid.members-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 560px){
+  .membership-grid.members-grid{ grid-template-columns: 1fr; }
+}
+</style>
