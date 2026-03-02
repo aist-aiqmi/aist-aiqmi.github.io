@@ -1969,4 +1969,138 @@ ol.style1 li:before {
 @media (max-width: 560px){
   .membership-grid.members-grid{ grid-template-columns: 1fr; }
 }
-</style>
+/* ===== header dropdown見た目調整（背景を同色、▼、/区切り） ===== */
+
+/* ラベル（AIQMIについて / 分科会）を他と同じ色に */
+#header .nav-dd-label{
+  color: #333;            /* ここは通常リンクと同じ色に */
+  text-decoration: none;
+}
+
+/* ▼アイコン（テキストでOK） */
+#header .nav-dd-label::after{
+  content: " ▼";
+  font-size: 0.85em;
+  opacity: 0.85;
+  margin-left: 0.2em;
+}
+
+/* ドロップダウン本体：背景をヘッダーと同系色に */
+#header .tooltip .tooltip-text{
+  background: #f3f3f3;    /* 今のヘッダー背景に合わせて微調整OK */
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: none;       /* 影で白っぽく見えるのが嫌なら消す */
+  padding: 6px 10px;
+}
+
+/* ドロップダウン内リンク：横並びにして / で区切る */
+#header .tooltip .tooltip-text a{
+  display: inline;
+  padding: 0;
+  margin: 0;
+  white-space: nowrap;
+  color: #333;
+  text-decoration: none;
+}
+
+/* 2個目以降のリンクの前に " / " を挿入 */
+#header .tooltip .tooltip-text a + a::before{
+  content: " / ";
+  color: rgba(0,0,0,0.55);
+}
+/* ===== dropdown：色は元に戻しつつ、▼ と / 区切りだけ付ける ===== */
+
+/* ▼だけ付ける（色は触らない） */
+#header .nav-dd-label::after{
+  content: " ▼";
+  font-size: 0.85em;
+  opacity: 0.85;
+  margin-left: 0.2em;
+}
+
+/* ドロップダウン内：2つ目以降のリンクの前に " / " を追加 */
+#header .tooltip .tooltip-text a + a::before{
+  content: " / ";
+}
+
+/* ここから下は「元の色に戻す」保険（前回の上書きが残っていても復旧） */
+#header .tooltip .tooltip-text{
+  background: initial;
+  border: initial;
+  box-shadow: initial;
+  color: inherit;
+}
+
+#header .tooltip .tooltip-text a{
+  color: inherit;
+}
+/* ===== header dropdown：元の黒ツールチップ（黒背景＋白文字）に戻す ===== */
+#header .tooltip .tooltip-text{
+  background: #333 !important;
+  color: #fff !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 8px 12px !important;
+  border-radius: 4px; /* 角丸が元からあるならOK。不要なら消してOK */
+}
+
+/* ドロップダウン内リンクも白で統一 */
+#header .tooltip .tooltip-text a{
+  color: #fff !important;
+  text-decoration: none;
+}
+
+/* 区切りの / も白（少し薄くしたければ rgba に） */
+#header .tooltip .tooltip-text a + a::before{
+  content: " / ";
+  color: rgba(255,255,255,0.75);
+}
+
+/* ▼はそのまま（色は触らない） */
+/* ▼を「山形のchevron」に置き換え（フォント非依存で綺麗） */
+#header .nav-dd-label::after{
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-left: 0.45em;
+  vertical-align: middle;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: translateY(-1px) rotate(45deg);
+  opacity: 0.75;
+}
+#header .tooltip:hover .nav-dd-label::after{
+  transform: translateY(1px) rotate(-135deg);
+}
+/* ===== g-nav：通常メニューだけ隙間を詰める（ENGLISHは除外） ===== */
+
+/* li自体の余白を整理（全体） */
+#g-nav li{
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* 通常リンクだけ（.lang-switch を除外） */
+#g-nav li:not(.lang-switch) > a{
+  display: inline-block;
+  padding: 8px 0 !important;   /* ← 好みで 6〜10px */
+  line-height: 1.2 !important;
+}
+
+/* もし .lang-switch が dl/dd 構造の場合の保険（触らない） */
+#g-nav li.lang-switch a{
+  padding: initial !important;
+  line-height: inherit !important;
+}
+/* ===== g-nav：会員募集案内 と ENGLISH の間だけ余白を追加 ===== */
+
+/* ENGLISH（.lang-switch）を下に少し離す */
+#g-nav li.lang-switch{
+  margin-top: 18px !important;   /* 好みで 12〜24px */
+}
+
+/* 念のため：ENGLISHボタン自体の上下余白は触らない */
+#g-nav li.lang-switch a{
+  margin-top: 0 !important;
+}
