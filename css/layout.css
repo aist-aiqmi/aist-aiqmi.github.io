@@ -95,7 +95,7 @@ img{
 }
 #header li:after {
   content: '/';
-  padding: 0 5px;
+  padding: 0 10px;
 }
 
 #header .float3{
