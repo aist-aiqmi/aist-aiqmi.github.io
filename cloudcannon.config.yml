@@ -2,6 +2,6 @@ collections_config:
   pages:
     path: ""
     glob:
-      - "cc_test.html"
+      - "*.html"
     filter: strict
     output: true
