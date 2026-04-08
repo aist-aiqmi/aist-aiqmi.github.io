@@ -12,6 +12,53 @@
 <link href="css/reset.css" rel="stylesheet" type="text/css"/>
 <link href="css/parts.css" rel="stylesheet" type="text/css"/>
 <link href="css/layout.css" rel="stylesheet" type="text/css"/>
+<style>
+a.file-link{
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  text-decoration: none;
+  line-height: 1.2;
+  background: rgba(0,0,0,.05);
+  border: 1px solid rgba(0,0,0,.06);
+  transition: transform .18s ease, background .18s ease, border-color .18s ease;
+}
+
+a.file-link::after{
+  content: "";
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 6px;
+  height: 2px;
+  background: rgba(0,0,0,.22);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .22s ease;
+  border-radius: 2px;
+}
+
+a.file-link:hover{
+  transform: translateY(-1px);
+  background: rgba(0,0,0,.08);
+  border-color: rgba(0,0,0,.10);
+}
+
+a.file-link:hover::after{
+  transform: scaleX(1);
+}
+
+a.file-link:focus{
+  outline: none;
+}
+
+a.file-link:focus-visible{
+  box-shadow: 0 0 0 3px rgba(0,0,0,.18);
+}
+</style>
 </head>
 <body>
 <div id="splash">
@@ -126,7 +173,44 @@
 </div>
 </section>
 </div>
-<!--/tab-area--></div>
+
+<h1 class="mb-5 mt-5 editable">成果物</h1>
+
+<div class="editable">
+  <div style="padding-top: 8px;">
+
+    <div style="padding: 0 0 20px; border-bottom: 1px dashed #b7b7b7;">
+      <p style="margin: 0 0 8px; font-size: 1.05rem; font-weight: 700; color: #222; letter-spacing: 0.02em;">
+        タイトル
+      </p>
+      <p style="margin: 0; font-size: 1.5rem; font-weight: 700; color: #111;">
+        GDARL
+      </p>
+    </div>
+
+    <div style="padding: 20px 0; border-bottom: 1px dashed #b7b7b7;">
+      <p style="margin: 0 0 8px; font-size: 1.05rem; font-weight: 700; color: #222; letter-spacing: 0.02em;">
+        説明文
+      </p>
+      <p style="margin: 0; line-height: 2; color: #333;">
+        AIは、適切な評価用オラクルの定義が困難なことが多く、従来のソフトウェア開発よりも品質保証が困難である。そのため、各国政府や産業界コミュニティなどがガイドライン・法規制などの文書を公開している。それらの文書はそれぞれの視点や目的を持つため、多種多様である。その一方で、文書間で重複する要素も多数存在する。こうした文書群を体系的に比較・可視化するため、文書を文書-節-キーワードの3層構造で整理し、グラフデータベースを用いた分析を可能にするGDARL（Graph database for Analysis of AI Regulation Literatures）を開発した。GDARLでは異なる文書間の重複点や差異を把握しやすく、共通要素の抽出や言及箇所の確認がスムーズに行えるため、AI品質に関する調査・検討すべき文書の横断的かつ包括的な検討を促進する。
+      </p>
+    </div>
+
+<div style="padding: 20px 0 0;">
+  <p style="margin: 0 0 8px; font-size: 1.05rem; font-weight: 700; color: #222; letter-spacing: 0.02em;">
+    リンク
+  </p>
+  <p style="margin: 0;">
+    <a class="file-link" href="demo_sigma_20260123/index.html" target="_blank" rel="noopener">
+      <span>demo_sigma_20260123/index.html</span>
+    </a>
+  </p>
+</div>
+  </div>
+</div>
+	
+	<!--/tab-area--></div>
 </div>
 <!--/pages-area--></div>
 </section>
