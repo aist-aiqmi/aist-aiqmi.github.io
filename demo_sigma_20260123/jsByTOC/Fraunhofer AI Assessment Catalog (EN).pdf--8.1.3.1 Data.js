@@ -1,0 +1,88 @@
+var toc_content = `124
+Dimension: Safety and Security
+[S-R-FS-CR-06] Requirements for mitigation strategies targeting a fail-safe state
+Requirement: Do
+Based on the particular application context and the associated risks identified in [S-R-FS-RI-01], (quantitative 
+if possible) requirements must be recorded for each mitigation strategy to be assigned according to [S-R-FS-
+CR-03] with the purpose of achieving a fail-safe state. At least the following points must be addressed:
+ – Error scenarios or (if possible) appropriate threshold values or qualitative criteria from which the mitigation 
+strategy targeting a fail-safe state should take effect. Operational limits of the embedding, e.g., 
+maximum rotation speed for motor control, must be taken into account. In addition, this also includes the 
+scenarios in which a fail-safe strategy is triggered following a mitigation strategy targeting fault tolerance 
+(see [S-R-FS-CR-05]).
+ – Response time (maximum time offset allowed before the mitigation strategy is deployed)
+ – Description of the fail-safe state to be achieved in the best-case scenario
+ – Reliability (if applicable) of the fail-safe strategy, i.e., the reliability with which the fail-safe state is achieved
+ – Justifiable maximum damage that may be accepted during transition to the fail-safe state
+8.1.3  Measures
+The measures in this risk area include embedding methods and tests to intercept errors or a failure of the 
+AI application, to bypass them (in terms of fault tolerance) as well as to enter a fail-safe state if necessary.
+[S-R-FS-ME-01] Safety guidelines and instructions for use
+Requirements: Do | Pr
+Safety objectives for functional safety must be derived from business objectives, business processes, relevant 
+laws, regulations and potential threats, and these must be documented. This safety guideline also contains 
+strategic guidance on how to achieve these objectives.
+Based on the safety guideline, instructions are provided in a standard format on
+ – using the application safely and
+ – developing the application
+ 
+Measures should be described to ensure that all users take note of them.
+A process must be established and documented that makes users and developers of the application aware of 
+risks relating to functional safety and indicates how to act correctly with respect to the safety of data, model 
+and embedding.  
+(based on BSI C5 SA-01)
+8.1.3.1  Data
+[S-R-FS-ME-02] Scenario coverage
+Requirement: Do
+Documentation should be available describing which test data is used to verify measures in this risk area. 
+It should be explained in a transparent way that the test data contains sufficient potential accident scenarios 
+and critical situations and thus fulfills the criteria defined in [S-R-FS-CR-02]. If necessary, reference can be 
+made to the documentation from the Dimension: Reliability (RE).
+
+125
+Dimension: Safety and Security
+8.1.3.2  AI component
+[S-R-FS-ME-03] Role of the AI component
+Requirement: Do
+It must be demonstrated to what extent the architecture and design of the AI component contribute to 
+the functional safety of the AI application, in particular to the prevention of accidents. If applicable, it is 
+necessary to describe whether the learning function (or the creation of the learning function) takes into 
+account accidents and injuries with negative feedback. If this has already been described in the Dimension: 
+Reliability (RE), reference can be made to the relevant documentation.
+8.1.3.3  Embedding
+[S-R-FS-ME-04] Embedding design
+Requirement: Do
+Documentation should be available detailing the extent to which the design and architecture of the 
+embedding (e.g., through redundant design or the integration of classic assistance systems) contribute to the 
+prevention or even bypassing of a malfunction and thus to the strengthening of functional safety.
+As this assessment catalog primarily addresses the AI-specific risks of the AI application and does not have the 
+intention or pretense to fully map out existing conventional standards (on functional safety, product safety, 
+information security, etc.), the documentation should focus on aspects of the embedding that are related to 
+the further processing or interpretation of the output of the AI component. Reference should be made to the 
+current classic norms and standards when dealing with the risks that are not specific to AI.
+[S-R-FS-ME-05] Intercepting harmful input data
+Requirements: Do | Te
+It should be explained in a transparent way which methods at the embedding level are used to detect harmful 
+inputs outside the application boundary that would represent an unacceptable safety risk if processed. 
+For example, the malfunction of a sensor is a typical error mode that can be detected by conventional 
+methods. In the case of image data, harmful inputs could be detected and intercepted by measuring defective 
+pixels, for example.
+ – If methods are implemented at embedding level to intercept harmful inputs in addition to detection 
+mechanisms at model level, these must be aligned with the approach in the Risk area: intercepting 
+errors at model level (IM) of the reliability dimension. Furthermore, it must be demonstrated that all 
+input areas for which embedding level detection is envisaged in [RE-R-IM-RI-01] are covered effectively by 
+the measures presented here.
+The effectiveness of the methods for intercepting errors or detecting threats must be demonstrated in suitable 
+tests. The tests must be documented and their choice justified. If there is no separate test for this measure, 
+it must be demonstrated that the methods have already been adequately examined through [S-R-FS-ME-09], 
+[S-R-FS-ME-11] or the [S-R-FS-ME-13] final real test.
+An explanation must be provided regarding the extent to which the method(s) described contribute to 
+fulfilling the criterion [S-R-FS-CR-04].
+[S-R-FS-ME-06] Intercepting errors during interpretation of the AI component output
+Requirements: Do | Te
+It should be explained in a transparent way which methods at the embedding level are used to detect 
+outputs of the AI component that would represent an unacceptable safety risk in the event of further 
+processing/interpretation by the embedding. For example, an AI-based collision avoidance system could 
+provide an additional safeguard for the interpretation of the AI component by comparing the results of 
+
+`;
