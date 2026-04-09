@@ -12,6 +12,53 @@
 <link href="css/reset.css" rel="stylesheet" type="text/css"/>
 <link href="css/parts.css" rel="stylesheet" type="text/css"/>
 <link href="css/layout.css" rel="stylesheet" type="text/css"/>
+<style>
+a.file-link{
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  text-decoration: none;
+  line-height: 1.2;
+  background: rgba(0,0,0,.05);
+  border: 1px solid rgba(0,0,0,.06);
+  transition: transform .18s ease, background .18s ease, border-color .18s ease;
+}
+
+a.file-link::after{
+  content: "";
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 6px;
+  height: 2px;
+  background: rgba(0,0,0,.22);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .22s ease;
+  border-radius: 2px;
+	}
+
+a.file-link:hover{
+  transform: translateY(-1px);
+  background: rgba(0,0,0,.08);
+  border-color: rgba(0,0,0,.10);
+}
+
+a.file-link:hover::after{
+  transform: scaleX(1);
+}
+
+a.file-link:focus{
+  outline: none;
+}
+
+a.file-link:focus-visible{
+  box-shadow: 0 0 0 3px rgba(0,0,0,.18);
+}
+</style>
 </head>
 <body>
 <div id="splash">
@@ -122,9 +169,46 @@
 </section>
 </div>
 <!--/tab-area--></div>
+
+<h1 class="mb-5 mt-5 editable">成果物</h1>
+
+<div class="editable">
+  <div style="padding-top: 8px;">
+
+    <div style="padding: 0 0 20px; border-bottom: 1px dashed #b7b7b7;">
+      <p style="margin: 0 0 8px; font-size: 1.05rem; font-weight: 700; color: #222; letter-spacing: 0.02em;">
+        タイトル
+      </p>
+      <p style="margin: 0; font-size: 1.5rem; font-weight: 700; color: #111;">
+        AI品質マネジメントフレームワーク解説書Rev1.0
+      </p>
+    </div>
+
+    <div style="padding: 20px 0; border-bottom: 1px dashed #b7b7b7;">
+      <p style="margin: 0 0 8px; font-size: 1.05rem; font-weight: 700; color: #222; letter-spacing: 0.02em;">
+        説明文
+      </p>
+      <p style="margin: 0; line-height: 2; color: #333;">
+        WG3で開発したAI品質について関係者で合意するためのフレームワークの解説書
+      </p>
+    </div>
+
+    <div style="padding: 20px 0 0;">
+      <p style="margin: 0 0 8px; font-size: 1.05rem; font-weight: 700; color: #222; letter-spacing: 0.02em;">
+        リンク
+      </p>
+      <p style="margin: 0;">
+        <a href="pdf/ai_quality_framework_guide_rev1_0.pdf" class="file-link" rel="noopener" target="_blank">
+          <span>PDF</span>
+        </a>
+      </p>
+    </div>
+
+  </div>
 </div>
-<!--/pages-area--></div>
-</section>
+
+<!--/pages-content--></div>
+<!--/pages-area--></div></section>
 <section id="contact">
 <h2 class="smoothTrigger">Contact<span>お問い合わせ</span></h2>
 <h4 class="smoothTrigger mb-4">AI品質マネジメントイニシアティブ事務局</h4>
