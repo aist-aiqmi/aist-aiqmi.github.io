@@ -12,6 +12,53 @@
 <link href="css/reset.css" rel="stylesheet" type="text/css"/>
 <link href="css/parts.css" rel="stylesheet" type="text/css"/>
 <link href="css/layout.css" rel="stylesheet" type="text/css"/>
+<style>
+a.file-link{
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  text-decoration: none;
+  line-height: 1.2;
+  background: rgba(0,0,0,.05);
+  border: 1px solid rgba(0,0,0,.06);
+  transition: transform .18s ease, background .18s ease, border-color .18s ease;
+}
+
+a.file-link::after{
+  content: "";
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 6px;
+  height: 2px;
+  background: rgba(0,0,0,.22);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .22s ease;
+  border-radius: 2px;
+	}
+
+a.file-link:hover{
+  transform: translateY(-1px);
+  background: rgba(0,0,0,.08);
+  border-color: rgba(0,0,0,.10);
+}
+
+a.file-link:hover::after{
+  transform: scaleX(1);
+}
+
+a.file-link:focus{
+  outline: none;
+}
+
+a.file-link:focus-visible{
+  box-shadow: 0 0 0 3px rgba(0,0,0,.18);
+}
+</style>
 </head>
 <body>
 <div id="splash">
@@ -121,7 +168,39 @@
 </div>
 </section>
 </div>
-<!--/tab-area--></div>
+
+	
+<h1 class="mb-5 mt-5 editable">成果物</h1>
+
+<div class="editable">
+  <div style="padding-top: 8px; overflow-x: auto;">
+    <table style="width: 100%; min-width: 760px; border-collapse: collapse; background: #fff; border: 1px solid #cfcfcf; table-layout: fixed;">
+      <thead>
+        <tr>
+          <th style="width: 220px; padding: 14px 16px; text-align: left; font-size: 1rem; font-weight: 700; color: #222; background: #E6E6E6; border: 1px solid #cfcfcf;">タイトル</th>
+          <th style="padding: 14px 16px; text-align: left; font-size: 1rem; font-weight: 700; color: #222; background: #E6E6E6; border: 1px solid #cfcfcf;">説明文</th>
+          <th style="width: 140px; padding: 14px 16px; text-align: left; font-size: 1rem; font-weight: 700; color: #222; background: #E6E6E6; border: 1px solid #cfcfcf; white-space: nowrap;">リンク</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td bgcolor="#f3f3f3" style="width: 220px; padding: 14px 16px; vertical-align: top; font-weight: 700; color: #111; border: 1px solid #cfcfcf; line-height: 1.7; word-break: break-word;">
+  AI 品質マネジメントイニシアティブ WG2 2025 年度 課題対策事例集
+</td>
+          <td bgcolor="#f3f3f3" style="padding: 14px 16px; vertical-align: top; line-height: 1.9; color: #333; border: 1px solid #cfcfcf;">
+            2025年度のAIQMI WG2活動において、AI品質マネジメントの課題を抽出して検討し、解決策の考え方と事例を整理した資料
+          <td bgcolor="#f3f3f3" style="width: 140px; padding: 14px 16px; vertical-align: top; border: 1px solid #cfcfcf; white-space: nowrap;">
+            <a href="pdf/aiqmi_wg2.pdf" class="file-link" rel="noopener" target="_blank">
+              <span>PDF</span>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<!--/tab-area--></div>	
+	
 </div>
 <!--/pages-area--></div>
 </section>
