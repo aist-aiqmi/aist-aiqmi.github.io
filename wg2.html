@@ -169,10 +169,9 @@ a.file-link:focus-visible{
 </section>
 </div>
 
-<!--
-<h1 class="mb-5 mt-5 editable">成果物</h1>
+<h1 class="mb-5 mt-5 editable" id="deliverables-title" style="display:none;">成果物</h1>
 
-<div class="editable">
+<div class="editable" id="deliverables-block" style="display:none;">
   <div style="padding-top: 8px; overflow-x: auto;">
     <table style="width: 100%; min-width: 760px; border-collapse: collapse; background: #fff; border: 1px solid #cfcfcf; table-layout: fixed;">
       <thead>
@@ -185,10 +184,11 @@ a.file-link:focus-visible{
       <tbody>
         <tr>
           <td bgcolor="#f3f3f3" style="width: 220px; padding: 14px 16px; vertical-align: top; font-weight: 700; color: #111; border: 1px solid #cfcfcf; line-height: 1.7; word-break: break-word;">
-  AI 品質マネジメントイニシアティブ WG2 2025 年度 課題対策事例集
-</td>
+            AI 品質マネジメントイニシアティブ WG2 2025 年度 課題対策事例集
+          </td>
           <td bgcolor="#f3f3f3" style="padding: 14px 16px; vertical-align: top; line-height: 1.9; color: #333; border: 1px solid #cfcfcf;">
             2025年度のAIQMI WG2活動において、AI品質マネジメントの課題を抽出して検討し、解決策の考え方と事例を整理した資料
+          </td>
           <td bgcolor="#f3f3f3" style="width: 140px; padding: 14px 16px; vertical-align: top; border: 1px solid #cfcfcf; white-space: nowrap;">
             <a href="pdf/aiqmi_wg2.pdf" class="file-link" rel="noopener" target="_blank">
               <span>PDF</span>
@@ -198,11 +198,11 @@ a.file-link:focus-visible{
       </tbody>
     </table>
   </div>
-</div>-->
-<!--/tab-area--></div>	
+</div>
+</div>	
 	
 </div>
-<!--/pages-area--></div>
+</div>
 </section>
 <section id="contact">
 <h2 class="smoothTrigger">Contact<span>お問い合わせ</span></h2>
@@ -248,5 +248,16 @@ a.file-link:focus-visible{
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 <!--自作のJS-->
 <script src="js/script.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const releaseDate = new Date('2026-04-20T00:00:00+09:00'); // 日本時間
+  const now = new Date();
+
+  if (now >= releaseDate) {
+    document.getElementById('deliverables-title').style.display = '';
+    document.getElementById('deliverables-block').style.display = '';
+  }
+});
+</script>
 </body>
 </html>
