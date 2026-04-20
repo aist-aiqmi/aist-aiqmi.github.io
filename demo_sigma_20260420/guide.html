@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GDARL 利用ガイド</title>
+    <style>
+        body {
+            font-family: "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f0f2f5;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background: #fff;
+            min-height: 100vh;
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+        }
+        h1 {
+            border-bottom: 2px solid #1a1a1a;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            font-size: 24px;
+        }
+        h2 {
+            margin-top: 40px;
+            font-size: 18px;
+            border-left: 5px solid #722ed1;
+            padding-left: 10px;
+            background: #f9f9f9;
+            padding: 8px 15px;
+        }
+        h3 {
+            font-size: 16px;
+            margin-top: 20px;
+            color: #555;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+        p, li {
+            font-size: 14px;
+        }
+        
+        /* 画面構成図の擬似スタイル */
+        .screen-map {
+            border: 2px solid #444;
+            background: #eee;
+            padding: 10px;
+            margin-bottom: 30px;
+            border-radius: 4px;
+            position: relative;
+        }
+        .screen-header {
+            background: #1a1a1a;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+        .screen-body {
+            display: flex;
+            height: 150px;
+            gap: 10px;
+        }
+        .screen-sidebar {
+            width: 20%;
+            background: #fff;
+            border: 1px solid #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            color: #888;
+        }
+        .screen-main {
+            flex: 1;
+            background: #fff;
+            border: 1px solid #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #aaa;
+            font-weight: bold;
+        }
+        .screen-footer {
+            margin-top: 10px;
+            height: 40px;
+            background: #fff;
+            border: 1px solid #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            color: #666;
+        }
+
+        /* 2カラムレイアウト */
+        .split-view {
+            display: flex;
+            gap: 20px;
+            margin-top: 15px;
+        }
+        .split-col {
+            flex: 1;
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            padding: 15px;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+        }
+        .col-header {
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #ddd;
+        }
+        
+        /* バッジ・アイコン */
+        .badge {
+            display: inline-block;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 11px;
+            color: #fff;
+            background: #666;
+            margin-right: 5px;
+        }
+        .btn-ref {
+            background: #eee;
+            border: 1px solid #ccc;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-size: 12px;
+            font-family: monospace;
+        }
+        
+        /* レイアウト種類のスタイル */
+        .layout-card {
+            background: #fafafa;
+            border: 1px solid #eee;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
+        .layout-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .split-view { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>GDARL 利用ガイド</h1>
+    <p>文書構造とキーワードの関連性を可視化・分析するためのツールです。<br>
+    画面の構成に沿って機能と操作方法を解説します。</p>
+
+    <h2>1. 画面構成</h2>
+    <div class="screen-map">
+        <div class="screen-header">
+            <strong>ヘッダー (操作メニュー)</strong><br>
+            [Data: 抽出/復元] ➔ [Chapters: 展開/閉じる] ➔ [Layout: 配置変更]
+        </div>
+        <div class="screen-body">
+            <div class="screen-sidebar">左サイドバー<br>(文書リスト)</div>
+            <div class="screen-main">グラフ描画エリア<br>(ノード操作)</div>
+            <div class="screen-sidebar">右サイドバー<br>(KWリスト)</div>
+        </div>
+        <div class="screen-footer">
+            テキスト表示エリア (本文・原典リンク)
+        </div>
+    </div>
+    
+    <ul>
+        <li><strong>ヘッダー</strong>: データの操作やレイアウト変更を行うボタンが、左から「データ処理 → 章操作 → レイアウト」の順で並んでいます。</li>
+        <li><strong>グラフエリア</strong>: 文書や章の関係図が表示されます。マウスホイールで拡大縮小、ドラッグで移動できます。</li>
+        <li><strong>サイドバー</strong>: 文書名やキーワードで検索・選択ができます。</li>
+        <li><strong>下部エリア</strong>: 選択した章の本文が表示されます。</li>
+    </ul>
+
+    <h2>2. ターゲットの選択 (検索・指定)</h2>
+    <p>分析の出発点となるノードを選びます。Ctrlキーを押しながらクリックで複数選択が可能です。</p>
+
+    <div class="split-view">
+        <div class="split-col">
+            <div class="col-header" style="border-color: #1890ff; color: #1890ff;">文書から探す</div>
+            <p><strong>左サイドバー</strong> を使用します。</p>
+            <ol>
+                <li>文書名で検索します。</li>
+                <li>リストをクリックすると、グラフ上の青いノードが選択されます。</li>
+            </ol>
+            <p><small>例：「A社の報告書」と「B社の資料」を比較したい場合など</small></p>
+        </div>
+        <div class="split-col">
+            <div class="col-header" style="border-color: #fa8c16; color: #fa8c16;">キーワードから探す</div>
+            <p><strong>右サイドバー</strong> を使用します。</p>
+            <ol>
+                <li>関心のある単語で検索します。</li>
+                <li>リストをクリックすると、グラフ上のオレンジのノードが選択されます。</li>
+            </ol>
+            <p><small>例：「AI」や「環境」に関連する文書をすべて見たい場合など</small></p>
+        </div>
+    </div>
+
+    <h2>3. 分析の手順</h2>
+    <p>ヘッダーメニューの左側から順番に操作することで、効率的に分析できます。</p>
+
+    <h3>STEP 1: Data (抽出・復元)</h3>
+    <p>選択したノードに関係する情報だけを残して画面を整理します。</p>
+    <ul>
+        <li><span class="btn-ref">✂ 抽出</span> : 選択中のノードと、それに関連する繋がりだけを残し、他を削除します。</li>
+        <li><span class="btn-ref">🔄 復元</span> : 最初の状態（全データ表示）に戻します。</li>
+    </ul>
+
+    <h3>STEP 2: Chapters (章の展開)</h3>
+    <p>文書ノードの中身（章・節）をグラフ上に展開します。</p>
+    <ul>
+        <li><span class="btn-ref">📖 章を展開</span> : 選択した文書ノードから、章ノード（紫色）が飛び出します。</li>
+        <li><span class="btn-ref">✖ 章を閉じる</span> : 展開した章を収納し、元の文書ノードのみの状態に戻します。</li>
+    </ul>
+
+    <h3>STEP 3: Layout (配置の調整)</h3>
+    <p>展開してノードが増えた際、見やすく整理するために3つのモードを使い分けます。</p>
+    
+    <div class="layout-card">
+        <div class="layout-title">① 円状配置 <span class="btn-ref">btn-circle</span></div>
+        <p>すべてのノードを大きな円周上に並べます。ノード同士の重なりがなく、全体量を把握するのに適したシンプルな配置です。</p>
+    </div>
+
+    <div class="layout-card">
+        <div class="layout-title">② 放射状ツリー <span class="btn-ref">btn-radial-tree</span></div>
+        <p><strong>構造分析に最適です。</strong><br>
+        文書を中心（核）として、同心円状に「章 → 節 → キーワード」と外側へ広がるように整列させます。階層構造が直感的に分かります。</p>
+    </div>
+
+    <div class="layout-card">
+        <div class="layout-title">③ 物理演算 <span class="btn-ref">btn-layout</span></div>
+        <p>ノード間の反発力を使って、自然に広がるように自動配置します。絡まり合った複雑な関係を解きほぐすのに便利です。アニメーションで動きます。</p>
+    </div>
+
+    <h2>4. 内容の閲覧</h2>
+    <p>章ノード（紫色）をクリックすると、画面下部のエリアに詳細が表示されます。</p>
+    <ul>
+        <li><strong>本文表示</strong>: その章のテキストが下部エリアに表示されます。</li>
+        <li><strong>原典リンク</strong>: 下部エリア右上の <a href="#" style="color:#1890ff; text-decoration:none;">🔗 元資料を閲覧</a> をクリックすると、元のPDFファイル等が別タブで開きます。</li>
+    </ul>
+
+</div>
+
+</body>
+</html>
