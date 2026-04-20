@@ -1,5 +1,0 @@
-var toc_content = `(152)
-In order to support adequate enforcement as regards AI systems and reinforce the capacities of the Member States, 
-Union AI testing support structures should be established and made available to the Member States.
-
-`;

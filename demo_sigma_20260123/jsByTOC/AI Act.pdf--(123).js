@@ -1,5 +1,0 @@
-var toc_content = `(123)
-In order to ensure a high level of trustworthiness of high-risk AI systems, those systems should be subject to 
-a conformity assessment prior to their placing on the market or putting into service.
-
-`;

@@ -1,8 +1,0 @@
-var toc_content = `Article 16
-Obligations of providers of high-risk AI systems
-Providers of high-risk AI systems shall:
-(a) ensure that their high-risk AI systems are compliant with the requirements set out in Section 2;
-(b) indicate on the high-risk AI system or, where that is not possible, on its packaging or its accompanying documentation, 
-as applicable, their name, registered trade name or registered trade mark, the address at which they can be contacted;
-(c) have a quality management system in place which complies with 
-`;

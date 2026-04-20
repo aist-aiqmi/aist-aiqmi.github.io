@@ -1,8 +1,0 @@
-var toc_content = `RULES RELATED TO COPYRIGHT 
-LEGAL TEXT 
-Article 53(1)(c): “Providers of general-purpose AI models shall put in place a policy to comply with 
-Union law on copyright and related rights, and in particular to identify and comply with, including 
-through state-of-the-art technologies, a reservation of rights expressed pursuant to Article 4(3) of 
-Directive (EU) 2019/790;”. 
-
-`;

@@ -1,1 +1,0 @@
-var toc_content = ``;

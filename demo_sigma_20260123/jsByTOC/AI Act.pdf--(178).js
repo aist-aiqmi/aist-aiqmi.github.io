@@ -1,5 +1,0 @@
-var toc_content = `(178)
-Providers of high-risk AI systems are encouraged to start to comply, on a voluntary basis, with the relevant 
-obligations of this Regulation already during the transitional period.
-
-`;
