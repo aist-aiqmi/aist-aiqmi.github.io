@@ -1,0 +1,38 @@
+var toc_content = `機械学習品質マネジメントガイドライン 第4 版 
+ 
+国立研究開発法人産業技術総合研究所 
+DigiARC-TR-2023-03 / CPSEC-TR-2023003 
+253 
+ 
+一方IEEE では現在、IEEE P7001 (transparency of autonomous systems) [21] を検討し
+ており、用語の定義や考え方において今後の標準化に一定の影響力を持つ可能性がある。５
+種類の関係者（ユーザ、事故調査委員会他）に対し6 種の透明性レベル (0～5) を規定して
+おり (数字が大きくなると必ずしも基準が厳しくなるものではない)、パイロット認証プロ
+ジェクトECPAIS にて適合性認証の実証が進められている。 
+ISO では、既に述べたISO/IEC JTC 1/SC 42 のWG 3 (trustworthiness) において、文書
+TR24028 [6] にて透明性に関する用語や概念を記載している。 
+ 
+公平性（バイアス） 
+EU では、バイアス含むAI のELSI 問題に関するハイレベルな原則をまとめている。ま
+た、欧州AI 法案では、データとデータガバナンス要件（Data and data governance）とし
+て、データセットが関連性・代表性・無誤差・適切な統計的特性を持つこと、および、バイ
+アスの監視・検知・補正を求めている。 
+前述したIEEE P7003 (algorithmic bias) [23] においては、アルゴリズムの開発において
+「負のバイアス」（人種や性別など法的に禁じられている差別、法的ではない差別を共に想
+定）を特定し、システムの立案から運用にいたるライフサイクルでバイアスを許容範囲に抑
+え込む方法論を規定しており、適合性認証を実現するためのパイロットプロジェクト
+ECPAIS (Ethics Certification Program for Autonomous and Intelligent Systems) での実証実
+験が進められている。 
+ ISO/IEC JTC 1/SC 42/WG 3 (trustworthiness) においても、TR 24028 (Overview of 
+trustworthiness in Artificial Intelligence) [6], TR 24027 (Bias in AI systems and AI aided 
+decision making) [5] などの文書の作成作業が現在進められている。 
+ 
+その他の機械学習品質マネジメントの観点 
+IEEE P7000 シリーズにてプライバシー [22] やNudge (行動の誘導) 他の検討が、また
+ISO/IEC JTC1/SC42 ではガバナンス他の検討が行われている。欧州AI 法案では、既出の
+要件の他に、リスク管理システム（risk management system）、技術文書の公開（Technical 
+documentation）、運用時の記録保持 （Record-keeping）、人間による監視 （Human oversight）
+の要件を求めている。 
+2023 年には生成系AI の発展が注目を集め、これに対し世界各地の政府が対応を始めた。
+
+`;
