@@ -1,0 +1,7 @@
+var toc_content = `Commitment 2. Copyright policy 
+In order to fulfil the obligation to put in place a policy to comply with Union law on copyright and related 
+rights, and in particular to identify and comply with, including through state-of-the-art technologies, a 
+reservation of rights expressed pursuant to Article 4(3) of Directive (EU) 2019/790 pursuant to Article 
+53(1), point (c) AI Act, Signatories commit to adopting the following measures:   
+
+`;
