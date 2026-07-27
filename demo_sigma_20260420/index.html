@@ -8,7 +8,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sigma.js/3.0.2/sigma.min.js"></script>
     <script src="graphology-layout-forceatlas2.umd.js"></script>
     <script src="sigma_data.js"></script>
-    <script src="urls.js"></script> 
+    <script src="urls.js"></script>
     <style>
         body,
         html {
@@ -220,6 +220,7 @@
             display: flex;
             align-items: center;
         }
+
         .help-link {
             position: absolute;
             top: 12px;
@@ -243,9 +244,9 @@
     <div id="app">
         <div id="header">
             <strong>GDARL</strong>
-    <a href="./guide.html" target="_blank" class="help-link">
-        <span style="font-size:1.2em;">?</span> 使い方ガイド
-    </a>
+            <a href="./guide.html" target="_blank" class="help-link">
+                <span style="font-size:1.2em;">?</span> 使い方ガイド
+            </a>
             <div class="btn-group">
                 <span class="group-label">Data</span>
                 <button id="btn-extract" class="danger">✂ 抽出</button>
@@ -296,6 +297,15 @@
             </div>
             <div id="text-content">章を選択してください</div>
         </div>
+        <footer
+            style="margin-top: auto; padding: 12px 20px; font-size: 0.8em; color: #777; border-top: 1px solid #d9d9d9; background: #fff; text-align: center;">
+            <div style="display: flex; justify-content: center; gap: 25px; flex-wrap: wrap;">
+                <span><strong>sigma.js</strong>: Licensed under <a href="https://opensource.org/licenses/MIT"
+                        target="_blank" style="color: #1890ff; text-decoration: none;">MIT</a></span>
+                <span><strong>graphorogy</strong>: Licensed under <a href="https://opensource.org/licenses/MIT"
+                        target="_blank" style="color: #1890ff; text-decoration: none;">MIT</a></span>
+            </div>
+        </footer>
     </div>
 
     <script>
@@ -492,7 +502,7 @@
                 if (oldScript) oldScript.remove();
                 const script = document.createElement('script');
                 script.id = 'chapter-script-loader';
-                script.src = scriptPath;
+                script.src = encodeURI(scriptPath);
                 document.getElementById('header-text').innerText = `読込中: ${scriptPath}`;
 
                 script.onload = () => {
@@ -1097,11 +1107,7 @@
             document.getElementById('status').innerText = "System Ready";
         };
     </script>
+
 </body>
-<footer style="margin-top: auto; padding: 12px 20px; font-size: 0.8em; color: #777; border-top: 1px solid #d9d9d9; background: #fff; text-align: center;">
-    <div style="display: flex; justify-content: center; gap: 25px; flex-wrap: wrap;">
-        <span><strong>sigma.js</strong>: Licensed under  <a href="https://opensource.org/licenses/MIT" target="_blank" style="color: #1890ff; text-decoration: none;">MIT</a></span>
-        <span><strong>graphorogy</strong>: Licensed under <a href="https://opensource.org/licenses/MIT" target="_blank" style="color: #1890ff; text-decoration: none;">MIT</a></span>
-    </div>
-</footer>
+
 </html>
