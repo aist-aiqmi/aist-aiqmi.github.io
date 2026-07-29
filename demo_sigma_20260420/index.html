@@ -315,6 +315,7 @@
         let currentIteration = 0;
         const MAX_ITERATIONS = 100;
         let selectedNodes = new Set();
+        let chapterLoadRequestId = 0;
 
         window.onload = function () {
             const Graph = window.graphology.Graph || window.graphology;
@@ -478,6 +479,30 @@
                 const cleanDoc = docLabel.replace(/\s+/g, ' ').trim();
                 const cleanChapter = chapterLabel.replace(/\s+/g, ' ').trim();
                 const scriptPath = `jsByTOC/${cleanDoc}.pdf/${cleanDoc}.pdf--${cleanChapter}.js`;
+                const normalizedDocs = [...new Set([
+                    cleanDoc,
+                    cleanDoc.normalize('NFC'),
+                    cleanDoc.normalize('NFD')
+                ])];
+                const normalizedChapters = [...new Set([
+                    cleanChapter,
+                    cleanChapter.normalize('NFC'),
+                    cleanChapter.normalize('NFD')
+                ])];
+                const scriptPaths = [];
+
+                normalizedDocs.forEach(normalizedDoc => {
+                    normalizedChapters.forEach(normalizedChapter => {
+                        scriptPaths.push(
+                            `jsByTOC/${normalizedDoc}.pdf/${normalizedDoc}.pdf--${normalizedChapter}.js`
+                        );
+                    });
+                });
+
+                const encodePath = path => path
+                    .split('/')
+                    .map(segment => encodeURIComponent(segment))
+                    .join('/');
 
 
                 // リンクの更新処理
@@ -498,24 +523,45 @@
                     }
                 }
 
-                const oldScript = document.getElementById('chapter-script-loader');
-                if (oldScript) oldScript.remove();
-                const script = document.createElement('script');
-                script.id = 'chapter-script-loader';
-                script.src = encodeURI(scriptPath);
+                const requestId = ++chapterLoadRequestId;
+                window.toc_content = null;
                 document.getElementById('header-text').innerText = `読込中: ${scriptPath}`;
 
-                script.onload = () => {
-                    if (window.toc_content) {
-                        document.getElementById('header-text').innerText = `${cleanDoc} > ${cleanChapter}`;
-                        document.getElementById('text-content').innerHTML = window.toc_content;
-                        window.toc_content = null;
-                    }
-                };
-                script.onerror = () => {
-                    document.getElementById('text-content').innerText = `読込失敗: ${scriptPath}`;
-                };
-                document.head.appendChild(script);
+                function loadScript(attemptIndex) {
+                    if (requestId !== chapterLoadRequestId) return;
+
+                    const oldScript = document.getElementById('chapter-script-loader');
+                    if (oldScript) oldScript.remove();
+
+                    const script = document.createElement('script');
+                    script.id = 'chapter-script-loader';
+                    script.src = encodePath(scriptPaths[attemptIndex]);
+
+                    script.onload = () => {
+                        if (requestId !== chapterLoadRequestId) return;
+                        if (window.toc_content !== null && window.toc_content !== undefined) {
+                            document.getElementById('header-text').innerText = `${cleanDoc} > ${cleanChapter}`;
+                            document.getElementById('text-content').innerHTML = window.toc_content;
+                            window.toc_content = null;
+                        } else if (attemptIndex + 1 < scriptPaths.length) {
+                            loadScript(attemptIndex + 1);
+                        } else {
+                            document.getElementById('text-content').innerText = `読込失敗: ${scriptPath}`;
+                        }
+                    };
+                    script.onerror = () => {
+                        if (requestId !== chapterLoadRequestId) return;
+                        if (attemptIndex + 1 < scriptPaths.length) {
+                            loadScript(attemptIndex + 1);
+                        } else {
+                            document.getElementById('text-content').innerText = `読込失敗: ${scriptPath}`;
+                        }
+                    };
+
+                    document.head.appendChild(script);
+                }
+
+                loadScript(0);
             }
 
             // --- 共通のエッジ再構築関数 ---
