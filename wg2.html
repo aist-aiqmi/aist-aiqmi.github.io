@@ -2,16 +2,16 @@
 
 <html lang="ja">
 <head>
-<meta charset="utf-8" />
+<meta charset="utf-8"/>
 <title>AI品質マネジメントイニシアティブ</title>
-<meta content="AI品質マネジメントイニシアティブ" name="description" />
-<meta content="" name="keywords" />
-<meta content="width=device-width,initial-scale=1.0" name="viewport" />
-<link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP%7CRoboto&amp;display=swap" rel="stylesheet" />
-<link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css" rel="stylesheet" />
-<link href="css/reset.css" rel="stylesheet" type="text/css" />
-<link href="css/parts.css" rel="stylesheet" type="text/css" />
-<link href="css/layout.css" rel="stylesheet" type="text/css" />
+<meta content="AI品質マネジメントイニシアティブ" name="description"/>
+<meta content="" name="keywords"/>
+<meta content="width=device-width,initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP%7CRoboto&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css" rel="stylesheet"/>
+<link href="css/reset.css" rel="stylesheet" type="text/css"/>
+<link href="css/parts.css" rel="stylesheet" type="text/css"/>
+<link href="css/layout.css" rel="stylesheet" type="text/css"/>
 <style>
 a.file-link{
   position: relative;
@@ -58,6 +58,181 @@ a.file-link:focus{
 a.file-link:focus-visible{
   box-shadow: 0 0 0 3px rgba(0,0,0,.18);
 }
+
+.aiqmi-content-label{
+  display:inline-flex;
+  align-items:center;
+  min-height:24px;
+  margin:0 0 8px;
+  padding:4px 11px;
+  border:1px solid transparent;
+  border-radius:999px;
+  font-size:0.76rem;
+  font-weight:700;
+  line-height:1.2;
+  letter-spacing:0.04em;
+  white-space:nowrap;
+  box-shadow:0 2px 7px rgba(28,48,72,.16);
+}
+.aiqmi-content-label--result{
+  color:#fff;
+  background:linear-gradient(135deg,#253b80 0%,#496bc5 100%);
+  border-color:#29458f;
+}
+.aiqmi-content-label--case{
+  color:#fff;
+  background:linear-gradient(135deg,#08796f 0%,#20a492 100%);
+  border-color:#0a7e73;
+}
+.aiqmi-content-label--site{
+  color:#604500;
+  background:linear-gradient(135deg,#fff0a8 0%,#ffd45d 100%);
+  border-color:#ddb53f;
+}
+
+.aiqmi-help-icon{
+  position: relative;
+  top: -2px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:24px;
+  height:24px;
+  margin-left:8px;
+  border-radius:50%;
+  font-size:0.9rem;
+  font-weight:700;
+  line-height:1;
+  color:#7a5a00;
+  background:linear-gradient(180deg,#ffe58a 0%,#ffd24d 100%);
+  border:1px solid #d9b43b;
+  box-shadow:0 2px 6px rgba(0,0,0,.12);
+  cursor:pointer;
+  user-select:none;
+  transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+}
+.aiqmi-help-icon:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0,0,0,.16);
+  filter: brightness(1.03);
+}
+.aiqmi-modal{
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(15,24,43,.58);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 9999;
+}
+.aiqmi-modal.is-open{
+  display: flex;
+}
+.aiqmi-modal-dialog{
+  width: min(720px, 92vw);
+  max-height: 80vh;
+  overflow: auto;
+  background: linear-gradient(160deg,#fff 0%,#f7f9fd 100%);
+  border: 1px solid rgba(207,216,231,.95);
+  border-radius: 20px;
+  box-shadow: 0 28px 70px rgba(10,25,55,.32);
+  animation: aiqmiModalIn .22s ease-out;
+}
+@keyframes aiqmiModalIn{
+  from{ opacity:0; transform:translateY(10px) scale(.985); }
+  to{ opacity:1; transform:translateY(0) scale(1); }
+}
+.aiqmi-modal-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  padding:20px 24px 17px;
+  border-bottom:1px solid #dfe5ef;
+  background:linear-gradient(90deg,rgba(73,107,197,.08) 0%,rgba(32,164,146,.04) 100%);
+}
+.aiqmi-modal-title{
+  position:relative;
+  margin:0;
+  padding-left:0;
+  font-size:1.12rem;
+  font-weight:700;
+  line-height:1.55;
+  color:#1f397f;
+}
+.aiqmi-modal-close{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  flex:0 0 auto;
+  width:34px;
+  height:34px;
+  padding:0;
+  border:1px solid #d7deea;
+  border-radius:50%;
+  background:#fff;
+  box-shadow:0 2px 8px rgba(28,48,72,.10);
+  font-size:1.35rem;
+  line-height:1;
+  cursor:pointer;
+  color:#596579;
+  transition:transform .18s ease, background .18s ease, color .18s ease;
+}
+.aiqmi-modal-close:hover{
+  transform:rotate(5deg) scale(1.05);
+  background:#eef2f9;
+  color:#263b72;
+}
+.aiqmi-modal-close:focus-visible{
+  outline:3px solid rgba(73,107,197,.25);
+  outline-offset:2px;
+}
+.aiqmi-modal-body{
+  padding:22px 24px 25px;
+  color:#344054;
+  line-height:1.95;
+  font-size:0.96rem;
+}
+.aiqmi-modal-body p{
+  margin:0 0 14px;
+  padding-left:15px;
+  border-left:2px solid #e2e8f2;
+  font-weight:400;
+}
+.aiqmi-modal-body .aiqmi-help-copy-note{
+  margin:19px 0 0;
+  padding:13px 15px;
+  border:1px solid #d8e4e1;
+  border-radius:11px;
+  background:#f1faf8;
+  color:#3b5a55;
+  font-size:0.88rem;
+  line-height:1.8;
+}
+@media (max-width:640px){
+  .aiqmi-modal{
+    padding:14px;
+  }
+  .aiqmi-modal-dialog{
+    width:100%;
+    max-height:86vh;
+    border-radius:16px;
+  }
+  .aiqmi-modal-head{
+    padding:17px 17px 14px;
+  }
+  .aiqmi-modal-title{
+    font-size:1rem;
+  }
+  .aiqmi-modal-body{
+    padding:18px 17px 20px;
+    font-size:0.9rem;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -65,7 +240,7 @@ a.file-link:focus-visible{
 <div id="splash_text"></div>
 </div>
 <div id="wrapper">
-<header class="fadeDownTrigger" id="header"> <a href="#"><img alt="" class="header_logo" src="img/logo.svg" /></a>
+<header class="fadeDownTrigger" id="header"> <a href="#"><img alt="" class="header_logo" src="img/logo.svg"/></a>
 <div class="header-area">
 <ul>
 <li>
@@ -139,9 +314,7 @@ a.file-link:focus-visible{
 <div class="program-area bgextend smoothTrigger">
 <div class="bgappearTrigger">
 <section class="timeline01">
-<p class="timeline01_t editable">
-  現在のガイドラインについて、実用に際しての問題点の洗い出しと解決策の検討
-</p>
+<p class="timeline01_t editable">現在のガイドラインについて、実用に際しての問題点の洗い出しと解決策の検討</p>
 <div class="timeline01_c"></div>
 </section>
 <section class="timeline01">
@@ -174,27 +347,162 @@ a.file-link:focus-visible{
 <h1 class="mb-5 mt-5 editable" id="deliverables-title" style="display:none;">成果物</h1>
 
 <div class="editable" id="deliverables-block" style="display:none;">
-  <div>
-    <table>
+  <div style="padding-top: 8px; overflow-x: auto;">
+    <table style="width: 100%; min-width: 760px; border-collapse: collapse; background: #fff; border: 1px solid #cfcfcf; table-layout: fixed;">
       <thead>
         <tr>
-          <th>タイトル</th>
-          <th>説明文</th>
-          <th>リンク</th>
+          <th style="width: 220px; padding: 14px 16px; text-align: left; font-size: 1rem; font-weight: 700; color: #222; background: #E6E6E6; border: 1px solid #cfcfcf;">タイトル</th>
+          <th style="padding: 14px 16px; text-align: left; font-size: 1rem; font-weight: 700; color: #222; background: #E6E6E6; border: 1px solid #cfcfcf;">説明文</th>
+          <th style="width: 140px; padding: 14px 16px; text-align: left; font-size: 1rem; font-weight: 700; color: #222; background: #E6E6E6; border: 1px solid #cfcfcf; white-space: nowrap;">リンク</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td> AI 品質マネジメントイニシアティブ WG2 2025 年度 課題対策事例集 </td>
-          <td> 2025年度のAIQMI WG2活動において、AI品質マネジメントの課題を抽出して検討し、解決策の考え方と事例を整理した資料 </td>
-          <td><a href="pdf/aiqmi_wg2.pdf" class="file-link" rel="noopener" target="_blank"> </a><span><a href="pdf/aiqmi_wg2.pdf" class="file-link" rel="noopener" target="_blank">PDF</a></span><a href="pdf/aiqmi_wg2.pdf" class="file-link" rel="noopener" target="_blank"> </a></td>
+          <td bgcolor="#f3f3f3" style="width: 220px; padding: 14px 16px; vertical-align: top; font-weight: 700; color: #111; border: 1px solid #cfcfcf; line-height: 1.7; word-break: break-word;">
+            AI 品質マネジメントイニシアティブ WG2 2025 年度 課題対策事例集
+          </td>
+          <td bgcolor="#f3f3f3" style="padding: 14px 16px; vertical-align: top; line-height: 1.9; color: #333; border: 1px solid #cfcfcf;">
+            2025年度のAIQMI WG2活動において、AI品質マネジメントの課題を抽出して検討し、解決策の考え方と事例を整理した資料
+          </td>
+          <td bgcolor="#f3f3f3" style="width: 140px; padding: 14px 16px; vertical-align: top; border: 1px solid #cfcfcf; white-space: nowrap;">
+            <a href="pdf/aiqmi_wg2.pdf" class="file-link" rel="noopener" target="_blank">
+              <span>PDF</span>
+            </a>
+          </td>
         </tr>
       </tbody>
     </table>
   </div>
+
+  <div style="margin-top: 28px; padding-top: 8px; overflow-x: auto;">
+    <div style="margin: 0 0 18px;">
+    <h2 class="editable" style="margin: 0; font-size: 1.45rem; color: #111; display: inline-flex; align-items: center; gap: 8px;">
+      AI品質課題－リスクー解決策モデル
+      <span class="aiqmi-help-icon" id="aiqmiHelpOpen" aria-label="説明を表示" role="button" tabindex="0">？</span>
+    </h2>
+  </div>
+<table style="width: 100%; min-width: 1120px; border-collapse: collapse; background: #fff; border: 1px solid #cfcfcf; table-layout: fixed;">
+  <colgroup>
+    <col style="width: 260px;">
+    <col style="width: 340px;">
+    <col style="width: 80px;">
+    <col style="width: 340px;">
+    <col style="width: 80px;">
+  </colgroup>
+  <tbody>
+    <tr>
+      <td colspan="5" bgcolor="#f3f3f3" style="padding: 16px 18px; vertical-align: top; font-weight: 700; color: #111; border: 1px solid #cfcfcf; line-height: 1.8; word-break: break-word; background: #E6E6E6;">社会や経営の視点で見たAI品質課題　「AI品質を支える基礎リテラシーの向上」</td>
+    </tr>
+    <tr>
+      <td colspan="3" bgcolor="#f3f3f3" style="padding: 10px 16px; vertical-align: top; border: 1px solid #cfcfcf; background: #E6E6E6; text-align: center; font-weight: 700;">リスクと技術課題</td>
+      <td colspan="2" bgcolor="#f3f3f3" style="padding: 10px 16px; vertical-align: top; font-weight: 700; color: #111; border: 1px solid #cfcfcf; line-height: 1.8; background: #E6E6E6; text-align: center;">解決策</td>
+    </tr>
+    <tr>
+      <td rowspan="3" bgcolor="#f3f3f3" style="padding: 16px 18px; vertical-align: top; font-weight: 700; color: #111; border: 1px solid #cfcfcf; line-height: 1.7; word-break: break-word;">どのようなリスクがあるか</td>
+      <td bgcolor="#f3f3f3" style="padding: 10px 16px; vertical-align: top; font-weight: 700; color: #111; border: 1px solid #cfcfcf; line-height: 1.8; background: #E6E6E6; text-align: center;">タイトル</td>
+      <td bgcolor="#f3f3f3" style="padding: 10px 16px; vertical-align: top; font-weight: 700; color: #111; border: 1px solid #cfcfcf; line-height: 1.8; background: #E6E6E6; text-align: center;">リンク</td>
+      <td bgcolor="#f3f3f3" style="padding: 10px 16px; vertical-align: top; font-weight: 700; color: #111; border: 1px solid #cfcfcf; line-height: 1.8; background: #E6E6E6; text-align: center;">タイトル</td>
+      <td bgcolor="#f3f3f3" style="padding: 10px 16px; vertical-align: top; font-weight: 700; color: #111; border: 1px solid #cfcfcf; line-height: 1.8; background: #E6E6E6; text-align: center;">リンク</td>
+    </tr>
+
+    <tr>
+      <td rowspan="1" bgcolor="#f3f3f3" style="padding: 16px 18px; vertical-align: top; color: #333; border: 1px solid #cfcfcf; line-height: 1.8; word-break: break-word;"><span class="aiqmi-content-label aiqmi-content-label--case">会員企業事例</span><br>　企業のAI活用における_リスク列挙フレームワーク</td>
+      <td rowspan="1" bgcolor="#f3f3f3" style="padding: 16px 18px; vertical-align: top; color: #333; border: 1px solid #cfcfcf; line-height: 1.8; word-break: break-word; white-space: nowrap;"><a href="pdf/member-case-ai-risk-enumeration-framework.pdf" class="file-link" rel="noopener" target="_blank"> <span>PDF</span> </a></td>
+      <td bgcolor="#f3f3f3" style="padding: 16px 18px; vertical-align: top; color: #333; border: 1px solid #cfcfcf; line-height: 1.8; word-break: break-word;"><span class="aiqmi-content-label aiqmi-content-label--site">会員企業サイト</span><br>　株式会社 MONO BRAIN</td>
+      <td bgcolor="#f3f3f3" style="padding: 16px 18px; vertical-align: top; color: #333; border: 1px solid #cfcfcf; line-height: 1.85; word-break: break-word; white-space: nowrap;"><a href="https://modelsafe.jp/" class="file-link" rel="noopener" target="_blank"> <span>URL</span> </a></td>
+    </tr>
+    <tr>
+      <td rowspan="1" bgcolor="#f3f3f3" style="padding: 16px 18px; vertical-align: top; color: #333; border: 1px solid #cfcfcf; line-height: 1.8; word-break: break-word;"><span class="aiqmi-content-label aiqmi-content-label--case">会員企業事例</span><br>　準備中</td>
+      <td rowspan="1" bgcolor="#f3f3f3" style="padding: 16px 18px; vertical-align: top; color: #333; border: 1px solid #cfcfcf; line-height: 1.8; word-break: break-word; white-space: nowrap;"></td>
+      <td bgcolor="#f3f3f3" style="padding: 16px 18px; vertical-align: top; color: #333; border: 1px solid #cfcfcf; line-height: 1.8; word-break: break-word;"><span class="aiqmi-content-label aiqmi-content-label--site">会員企業サイト</span><br>　準備中</td>
+      <td bgcolor="#f3f3f3" style="padding: 16px 18px; vertical-align: top; color: #333; border: 1px solid #cfcfcf; line-height: 1.85; word-break: break-word; white-space: nowrap;"></td>
+    </tr>
+
+    <tr>
+      <td rowspan="3" bgcolor="#f3f3f3" style="padding: 16px 18px; vertical-align: top; font-weight: 700; color: #111; border: 1px solid #cfcfcf; line-height: 1.7; word-break: break-word;">リスクマネジメントの技術課題</td>
+      <td colspan="2" rowspan="3" bgcolor="#f3f3f3" style="padding: 16px 18px; vertical-align: top; color: #333; border: 1px solid #cfcfcf; line-height: 1.85; word-break: break-word;">
+        <div>◆ リスクの見落としを防ぐにはどうすればよいか</div>
+        <div>◆ リスクの分析・評価をどのように行えばよいか</div>
+        <div>◆ リスクの対応をどこまでやればよいか</div>
+      </td>
+      <td bgcolor="#f3f3f3" style="padding: 16px 18px; vertical-align: top; color: #333; border: 1px solid #cfcfcf; line-height: 1.85; word-break: break-word;"><span class="aiqmi-content-label aiqmi-content-label--result">AIQMI成果物</span><br>　リスク分析・評価</td>
+      <td bgcolor="#f3f3f3" style="padding: 16px 18px; vertical-align: top; color: #333; border: 1px solid #cfcfcf; line-height: 1.85; word-break: break-word; white-space: nowrap;">
+        <a href="pdf/aiqmi-risk-analysis-and-evaluation.pdf" class="file-link" rel="noopener" target="_blank">
+          <span>PDF</span>
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td bgcolor="#f3f3f3" style="padding: 16px 18px; vertical-align: top; color: #333; border: 1px solid #cfcfcf; line-height: 1.85; word-break: break-word;"><span class="aiqmi-content-label aiqmi-content-label--case">会員企業事例</span><br>　セキュリティリスクアセスメント手順</td>
+      <td bgcolor="#f3f3f3" style="padding: 16px 18px; vertical-align: top; color: #333; border: 1px solid #cfcfcf; line-height: 1.85; word-break: break-word; white-space: nowrap;">
+        <a href="pdf/member-case-security-risk-assessment-procedure.pdf" class="file-link" rel="noopener" target="_blank">
+          <span>PDF</span>
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td bgcolor="#f3f3f3" style="padding: 16px 18px; vertical-align: top; color: #333; border: 1px solid #cfcfcf; line-height: 1.85; word-break: break-word;">（今後の候補）<br>　リスクマネジメントの基礎</td>
+      <td bgcolor="#f3f3f3" style="padding: 16px 18px; vertical-align: top; color: #333; border: 1px solid #cfcfcf; line-height: 1.85; word-break: break-word; white-space: nowrap;"></td>
+    </tr>
+
+    <tr>
+      <td rowspan="2" bgcolor="#f3f3f3" style="padding: 16px 18px; vertical-align: top; font-weight: 700; color: #111; border: 1px solid #cfcfcf; line-height: 1.7; word-break: break-word;">要求定義の技術課題</td>
+      <td colspan="2" rowspan="2" bgcolor="#f3f3f3" style="padding: 16px 18px; vertical-align: top; color: #333; border: 1px solid #cfcfcf; line-height: 1.85; word-break: break-word;">
+        <div>◆ 最初に要件を固められないがどうすればよいか</div>
+        <div>◆ 品質目標をどのように設定すればよいか</div>
+        <div>◆ 自社製品・サービスの差別化を図るにはどうすればよいか</div>
+      </td>
+      <td bgcolor="#f3f3f3" style="padding: 16px 18px; vertical-align: top; color: #333; border: 1px solid #cfcfcf; line-height: 1.85; word-break: break-word;"><span class="aiqmi-content-label aiqmi-content-label--result">AIQMI成果物</span><br>　AI品質合意フレームワーク解説書Rev1.0</td>
+      <td bgcolor="#f3f3f3" style="padding: 16px 18px; vertical-align: top; color: #333; border: 1px solid #cfcfcf; line-height: 1.85; word-break: break-word; white-space: nowrap;">
+        <a href="pdf/aiqmi-ai-quality-agreement-framework-rev1-0.pdf" class="file-link" rel="noopener" target="_blank">
+          <span>PDF</span>
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td bgcolor="#f3f3f3" style="padding: 16px 18px; vertical-align: top; color: #333; border: 1px solid #cfcfcf; line-height: 1.85; word-break: break-word;">（今後の候補）<br>　要求定義の基礎</td>
+      <td bgcolor="#f3f3f3" style="padding: 16px 18px; vertical-align: top; color: #333; border: 1px solid #cfcfcf; line-height: 1.85; word-break: break-word; white-space: nowrap;"></td>
+    </tr>
+
+    <tr>
+      <td rowspan="3" bgcolor="#f3f3f3" style="padding: 16px 18px; vertical-align: top; font-weight: 700; color: #111; border: 1px solid #cfcfcf; line-height: 1.7; word-break: break-word;">検証・評価の技術課題</td>
+      <td colspan="2" rowspan="3" bgcolor="#f3f3f3" style="padding: 16px 18px; vertical-align: top; color: #333; border: 1px solid #cfcfcf; line-height: 1.85; word-break: break-word;">
+        <div>◆ AI品質の評価軸や評価基準はどのようなものか</div>
+        <div>◆ AIの精度100%は保証できないことをどう考えればよいか</div>
+        <div>◆ 有用性をどのようにして評価することができるか</div>
+      </td>
+      <td bgcolor="#f3f3f3" style="padding: 16px 18px; vertical-align: top; color: #333; border: 1px solid #cfcfcf; line-height: 1.85; word-break: break-word;"><span class="aiqmi-content-label aiqmi-content-label--case">会員企業事例</span><br>　生成AIの評価方法</td>
+      <td bgcolor="#f3f3f3" style="padding: 16px 18px; vertical-align: top; color: #333; border: 1px solid #cfcfcf; line-height: 1.85; word-break: break-word; white-space: nowrap;">
+        <a href="pdf/member-case-generative-ai-evaluation-method.pdf" class="file-link" rel="noopener" target="_blank">
+          <span>PDF</span>
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td bgcolor="#f3f3f3" style="padding: 16px 18px; vertical-align: top; color: #333; border: 1px solid #cfcfcf; line-height: 1.85; word-break: break-word;"><span class="aiqmi-content-label aiqmi-content-label--case">会員企業事例</span><br>　自動車の外観検査AI事例</td>
+      <td bgcolor="#f3f3f3" style="padding: 16px 18px; vertical-align: top; color: #333; border: 1px solid #cfcfcf; line-height: 1.85; word-break: break-word; white-space: nowrap;">
+        <a href="pdf/member-case-automotive-visual-inspection-ai.pdf" class="file-link" rel="noopener" target="_blank">
+          <span>PDF</span>
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td bgcolor="#f3f3f3" style="padding: 16px 18px; vertical-align: top; color: #333; border: 1px solid #cfcfcf; line-height: 1.85; word-break: break-word;"><span class="aiqmi-content-label aiqmi-content-label--case">会員企業事例</span><br>　生成AI組み込み型SaaSにおけるテスト評価の実践</td>
+      <td bgcolor="#f3f3f3" style="padding: 16px 18px; vertical-align: top; color: #333; border: 1px solid #cfcfcf; line-height: 1.85; word-break: break-word; white-space: nowrap;">
+        <a href="pdf/member-case-generative-ai-embedded-saas-test-evaluation.pdf" class="file-link" rel="noopener" target="_blank">
+          <span>PDF</span>
+        </a>
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+	
+	</div>
+
 </div>
 </div>	
-	
+
 </div>
 </div>
 </section>
@@ -242,6 +550,22 @@ a.file-link:focus-visible{
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 <!--自作のJS-->
 <script src="js/script.js"></script>
+
+<div class="aiqmi-modal" id="aiqmiHelpModal" aria-hidden="true">
+  <div class="aiqmi-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="aiqmiHelpModalTitle">
+    <div class="aiqmi-modal-head">
+      <h3 class="aiqmi-modal-title" id="aiqmiHelpModalTitle">「AI品質課題－リスク－解決策モデル」について</h3>
+      <button type="button" class="aiqmi-modal-close" id="aiqmiHelpClose" aria-label="閉じる">×</button>
+    </div>
+    <div class="aiqmi-modal-body">
+      <p>AI品質課題には、社会、経営、技術など多様な視点が含まれます。それらを個々に扱うのみでなく、目的と手段として関連付けることが、効果的な課題解決策につながります。</p>
+      <p>社会や経営の視点で見たAI品質課題を上位の目的に掲げて、その目的に関わるリスクを整理すると共に、共通的な技術課題の解決策を整理するための枠組みが本モデルです。</p>
+      <p>ここで言う技術とは、エンジニアリングのことを指し、リスクマネジメント、要件定義、検証・評価といった3分類で整理しています。AIQMIで纏めた成果物の他、企業における検討事例や実践事例*を掲載しています。</p>
+      <p class="aiqmi-help-copy-note">*＜会員企業事例＞は、企業における検討事例や実践事例、＜会員企業サイト＞は、事例をご提供いただいた企業が運営するサイトへのリンクです。</p>
+    </div>
+  </div>
+</div>
+
 <script>
 document.addEventListener('DOMContentLoaded', function () {
   const releaseDate = new Date('2026-04-20T00:00:00+09:00'); // 日本時間
@@ -251,6 +575,53 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('deliverables-title').style.display = '';
     document.getElementById('deliverables-block').style.display = '';
   }
+
+  const openBtn = document.getElementById('aiqmiHelpOpen');
+  const modal = document.getElementById('aiqmiHelpModal');
+  const closeBtn = document.getElementById('aiqmiHelpClose');
+  const dialog = modal ? modal.querySelector('.aiqmi-modal-dialog') : null;
+
+  function openModal() {
+    if (!modal) return;
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    if (!modal) return;
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  if (openBtn) {
+    openBtn.addEventListener('click', openModal);
+    openBtn.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openModal();
+      }
+    });
+  }
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closeModal);
+  }
+
+  if (modal) {
+    modal.addEventListener('click', function (e) {
+      if (!dialog || !dialog.contains(e.target)) {
+        closeModal();
+      }
+    });
+  }
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      closeModal();
+    }
+  });
 });
 </script>
 </body>
